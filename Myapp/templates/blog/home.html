@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block body %}
+<script>
+    function home_fun(s){
+        var temp=document.getElementById("home");
+        if(s==1){
+            var temp2 =document.getElementById("h1");
+            temp.innerHTML=temp2.innerHTML;
+        }
+        else if(s==2){
+            var temp2 =document.getElementById("h2");
+            temp.innerHTML=temp2.innerHTML;
+        }
+        else if(s==3){
+            var temp2 =document.getElementById("h3");
+            temp.innerHTML=temp2.innerHTML;
+        }
+        else if(s==4){
+            var temp2 =document.getElementById("h4");
+            temp.innerHTML=temp2.innerHTML;
+        }
+    }
+</script>
+<div  class="container1">
+    <div id="home" class="container1">
+
+    <div class="category" style="align-self: flex-start;" onclick="home_fun(1)">
+        <h2>Mental Health</h2>
+        <p>
+            Taking care of your mental health is essential for overall well-being. Learn about mindfulness, stress management, and ways to maintain a healthy mind.
+        </p>
+    </div>
+    
+    <div class="category" style="align-self: flex-end;" onclick="home_fun(2)">
+        <h2>Heart Disease</h2>
+        <p>
+            Discover tips for maintaining a healthy heart. From proper nutrition to regular exercise, find information to keep your cardiovascular system in top shape.
+        </p>
+    </div>
+
+    <div class="category" style="align-self: flex-start;" onclick="home_fun(3)">
+        <h2>Covid-19</h2>
+        <p>
+            Stay informed about Covid-19 updates, vaccination information, and best practices to protect yourself and others during these challenging times.
+        </p>
+    </div>
+
+    <div class="category" style="align-self: flex-end;" onclick="home_fun(4)">
+        <h2>Immunization</h2>
+        <p>
+            Learn about the importance of immunization for preventing diseases. Stay up-to-date on vaccination schedules and understand the benefits of vaccination.
+        </p>
+    </div>
+</div>
+</div>
+<div class="attribute" id="h1"><center>
+{% for post in allPosts %} 
+    {% if post.category == 'Mental Health' %}
+    <div class="blog-post">
+        <h1>{{post.title}}</h1>
+        <p>Author: <span id="author-name">{{post.author}}</span></p>
+        <img src="{{post.image.url}}" alt="Blog Image" style="height:200px;" >
+        <p>{{post.content}}</p>
+    </div>
+    {% endif %}
+{% endfor %}</center>
+</div>
+
+<div class="attribute" id="h2"><center>
+    {% for post in allPosts %} 
+        {% if post.category == 'Heart Disease' %}
+        <div class="blog-post">
+            <h1>{{post.title}}</h1>
+            <p>Author: <span id="author-name">{{post.author}}</span></p>
+            <img src="{{post.image.url}}" alt="Blog Image" style="height:200px;" >
+            <p>{{post.content}}</p>
+        </div>
+        {% endif %}
+    {% endfor %}</center>
+</div>
+
+<div class="attribute" id="h3"><center>
+    {% for post in allPosts %} 
+        {% if post.category == 'Covid-19' %}
+        <div class="blog-post">
+            <h1>{{post.title}}</h1>
+            <p>Author: <span id="author-name">{{post.author}}</span></p>
+            <img src="{{post.image.url}}" alt="Blog Image" style="height:200px;" >
+            <p>{{post.content}}</p>
+        </div>
+        {% endif %}
+    {% endfor %}</center>
+</div>
+<div class="attribute" id="h4"><center>
+    {% for post in allPosts %} 
+        {% if post.category == 'Immunization' %}
+        <div class="blog-post">
+            <h1>{{post.title}}</h1>
+            <p>Author: <span id="author-name">{{post.author}}</span></p>
+            <img src="{{post.image.url}}" alt="Blog Image" style="height:200px;" >
+            <p>{{post.content}}</p>
+        </div>
+        {% endif %}
+    {% endfor %}</center>
+</div>
+                    
+{% endblock body %}

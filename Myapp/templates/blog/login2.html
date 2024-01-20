@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+    <div class="container" id="c2">
+        <h2>Welcome</h2>
+        <button onclick="fun(1)">login</button>
+        <div class="separator">or</div>
+        <button onclick="fun(2)">Signup</button>
+    </div>
+        <div class="attribute" id="I1">
+            <form action="PatientSignin" method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>        
+        <div class="attribute" id="I2">
+            <form action="PatientSignup" method="post" onsubmit="return validateform()" >
+                {% csrf_token %}
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="file" name="profile_picture" accept="image/*" required>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+                <input type="text" name="address_line1" placeholder="Address Line 1" required>
+                <input type="text" name="city" placeholder="City" required>
+                <input type="text" name="state" placeholder="State" required>
+                <input type="text" name="pincode" placeholder="Pincode" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div> </center>
+{% endblock body %}

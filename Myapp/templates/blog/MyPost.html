@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+{% for post in allPosts %}     
+    {% if post.uname == user.username %}
+        <div class="blog-post">
+            <h1>{{post.title}}</h1>
+            <p>Author: <span id="author-name">{{post.author}}</span></p>
+            <img src="{{post.image.url}}" alt="Blog Image" style="height:200px;" >
+            <p>{{post.content}}</p>
+        </div>
+    {% endif %}
+{% endfor %}
+
+{% endblock body %}

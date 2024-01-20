@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="blog-form" >
+    <h2>Create Blog Post</h2>
+    <form action="addpost" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="heading">Blog Heading:</label>
+        <input type="text" name="heading" required>
+
+        <label for="author_name">Author Name:</label>
+        <input type="text" name="author_name" required>
+        
+        <label for="category">Category:</label>
+    <select name="category" required>
+        <option value="Mental Health">Mental Health</option>
+        <option value="Heart Disease">Heart Disease</option>
+        <option value="Covid-19">Covid-19</option>
+        <option value="Immunization">Immunization</option>
+    </select>
+
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" accept="image/*" required>
+
+        <label for="description">Description:</label>
+        <textarea name="description" rows="5" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock body %}
