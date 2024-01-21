@@ -34,7 +34,8 @@ def dsn(request):
                 }
                 request.session['user_data'] = user_data
                 # Successful login, you can add further logic here
-                return render(request, 'blog/home.html', {'user': user})
+                return redirect("/")
+                # return render(request, 'blog/home.html', {'user': user})
 
         else:
                 # Invalid credentials
@@ -59,7 +60,8 @@ def dsp(request):
                     # Add other fields as needed
                 }
       request.session['user_data'] = user_data
-      return HttpResponse('done')
+      return redirect("/")
+      # return HttpResponse('done')
 
 def psn(request):
     if request.method =='POST':
@@ -76,8 +78,9 @@ def psn(request):
                     # Add other fields as needed
                 }
                 request.session['user_data'] = user_data
+                return redirect("/")
                 # Successful login, you can add further logic here
-                return render(request, 'blog/home.html',{'user': user})
+                # return render(request, 'blog/home.html',{'user': user})
 
             else:
                 # Invalid credentials
@@ -103,11 +106,13 @@ def psp(request):
                     # Add other fields as needed
                 }
       request.session['user_data'] = user_data
-      return HttpResponse('done')
+      return redirect("/")
+      # return HttpResponse('done')
 
 def logout(request):
     del request.session['user_data']
-    return render(request,'blog/home.html')
+    return redirect("/")
+    # return render(request,'blog/home.html')
 
     
 def addpost(request):
@@ -133,7 +138,8 @@ def addpost(request):
             author=author,
             slug=slug,
         )
-     return HttpResponse("done")
+     return redirect("/")
+     # return HttpResponse("done")
 
 def mypost(request):
     user = request.session.get('user_data', None)
